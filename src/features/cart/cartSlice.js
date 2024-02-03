@@ -4,7 +4,10 @@ import cartItems from "../../cartItems";
 const initialState = {
   cartItems: cartItems,
   amount: cartItems.length,
-  total: 0,
+  total: cartItems.reduce(
+    (totalAmount, item) => totalAmount + item.price * item.amount,
+    0
+  ),
   isLoading: true,
 };
 
